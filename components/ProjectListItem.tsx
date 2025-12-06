@@ -1,18 +1,18 @@
-import {CustomPortableText} from '@/components/CustomPortableText'
+import { CustomPortableText } from '@/components/CustomPortableText'
 import ImageBox from '@/components/ImageBox'
-import type {ShowcaseProject} from '@/types'
-import type {PortableTextBlock} from 'next-sanity'
+import type { ShowcaseProject } from '@/types'
+import type { PortableTextBlock } from 'next-sanity'
 
 interface ProjectProps {
   project: ShowcaseProject
 }
 
 export function ProjectListItem(props: ProjectProps) {
-  const {project} = props
+  const { project } = props
 
   return (
     <>
-      <div className="w-full m-12 xl:w-9/12">
+      <div className="w-full p-4 xl:w-9/12">
         <ImageBox
           image={project.coverImage}
           alt={`Cover image from ${project.title}`}
@@ -20,15 +20,15 @@ export function ProjectListItem(props: ProjectProps) {
         />
       </div>
       <div className="flex xl:w-1/4">
-      <div className='text-portfolio-2'>
-        <TextBox project={project} />
+        <div className='text-portfolio-3'>
+          <TextBox project={project} />
         </div>
       </div>
     </>
   )
 }
 
-function TextBox({project}: {project: ShowcaseProject}) {
+function TextBox({ project }: { project: ShowcaseProject }) {
   console.log(project)
   return (
     <div className=" rounded-md relative mt-2 flex w-full flex-col justify-between p-3 xl:mt-0">
@@ -38,7 +38,7 @@ function TextBox({project}: {project: ShowcaseProject}) {
           {project.title}
         </div>
         {/* Overview  */}
-        <div className="font-serif ml-1 bg-portfolio-5">
+        <div className="font-serif ml-1">
           <CustomPortableText
             id={project._id}
             type={project._type}

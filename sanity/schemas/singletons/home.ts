@@ -1,5 +1,5 @@
-import {HomeIcon} from '@sanity/icons'
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import { HomeIcon } from '@sanity/icons'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'home',
@@ -72,7 +72,7 @@ export default defineType({
       of: [
         defineArrayMember({
           type: 'reference',
-          to: [{type: 'project'}],
+          to: [{ type: 'project' }],
         }),
       ],
     }),
@@ -81,7 +81,7 @@ export default defineType({
     select: {
       title: 'title',
     },
-    prepare({title}) {
+    prepare({ title }) {
       return {
         subtitle: 'Home',
         title,

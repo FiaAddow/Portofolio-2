@@ -1,8 +1,8 @@
-import {urlForImage} from '@/sanity/lib/utils'
+import { urlForImage } from '@/sanity/lib/utils'
 import Image from 'next/image'
 
 interface ImageBoxProps {
-  'image'?: {asset?: any}
+  'image'?: { asset?: any }
   'alt'?: string
   'width'?: number
   'height'?: number
@@ -29,7 +29,7 @@ export default function ImageBox({
     >
       {imageUrl && (
         <Image
-          className="absolute h-full w-full"
+          className="h-full w-full"
           alt={alt}
           width={width}
           height={height}

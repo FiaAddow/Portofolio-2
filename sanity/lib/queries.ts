@@ -1,4 +1,4 @@
-import {defineQuery} from 'next-sanity'
+import { defineQuery } from 'next-sanity'
 
 export const homePageQuery = defineQuery(`
   *[_type == "home"][0]{
@@ -18,6 +18,7 @@ export const homePageQuery = defineQuery(`
       }
     },
     title,
+    coverImage,
   }
 `)
 

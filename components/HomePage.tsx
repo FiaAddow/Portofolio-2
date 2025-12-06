@@ -13,7 +13,7 @@ export interface HomePageProps {
 
 export async function HomePage({ data }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { overview = [], showcaseProjects = [], title = '' } = data ?? {}
+  const { overview = [], showcaseProjects = [], title = '', coverImage = "" } = data ?? {}
 
   const dataAttribute =
     data?._id && data?._type
@@ -35,12 +35,13 @@ export async function HomePage({ data }: HomePageProps) {
           centered
           title={title}
           description={overview}
+          coverImage={coverImage as any}
         />
       )}
       {/* Showcase projects */}
-      <div className='text-3xl  text-portfolio-3 font-sa'>Previous Projects</div>
-      <div className="mx-auto max-w-[100rem] rounded-md border">
-        <OptimisticSortOrder id={data?._id} path={'showcaseProjects'}> 
+      <div className='text-3xl text-portfolio-3 font-bold'>My work</div>
+      <div className="mx-auto max-w-[100rem] rounded-md">
+        <OptimisticSortOrder id={data?._id} path={'showcaseProjects'}>
           {showcaseProjects &&
             showcaseProjects.length > 0 &&
             showcaseProjects.map((project) => {
@@ -50,7 +51,7 @@ export async function HomePage({ data }: HomePageProps) {
               }
               return (
                 <Link
-                  className="flex flex-col m-20 gap-x-20 p-5 transition bg-portfolio-5 odd:border-b odd:border-t hover:bg-portfolio-4-50/50 xl:flex-row odd:xl:flex-row-reverse"
+                  className="flex flex-col m-10 gap-x-8 p-5 transition bg-portfolio-1/50 shadow-md odd:border-b odd:border-t hover:bg-portfolio-4-50/50 xl:flex-row odd:xl:flex-row-reverse"
                   key={project._key}
                   href={href}
                   data-sanity={dataAttribute?.(['showcaseProjects', { _key: project._key }])}
