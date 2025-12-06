@@ -1,8 +1,8 @@
-import {OptimisticSortOrder} from '@/components/OptimisticSortOrder'
-import type {SettingsQueryResult} from '@/sanity.types'
-import {studioUrl} from '@/sanity/lib/api'
-import {resolveHref} from '@/sanity/lib/utils'
-import {createDataAttribute, stegaClean} from 'next-sanity'
+import { OptimisticSortOrder } from '@/components/OptimisticSortOrder'
+import type { SettingsQueryResult } from '@/sanity.types'
+import { studioUrl } from '@/sanity/lib/api'
+import { resolveHref } from '@/sanity/lib/utils'
+import { createDataAttribute, stegaClean } from 'next-sanity'
 import Link from 'next/link'
 
 interface NavbarProps {
@@ -11,18 +11,18 @@ interface NavbarProps {
 export function Navbar(props: NavbarProps) {
 
   debugger;
-  const {data} = props
+  const { data } = props
   const dataAttribute =
     data?._id && data?._type
       ? createDataAttribute({
-          baseUrl: studioUrl,
-          id: data._id,
-          type: data._type,
-        })
+        baseUrl: studioUrl,
+        id: data._id,
+        type: data._type,
+      })
       : null
   return (
     <header
-      className="sticky top-0 z-10 flex flex-wrap items-center gap-x-5 bg-white/80 px-4 py-4 backdrop-blur md:px-16 md:py-5 lg:px-32"
+      className="sticky top-0 z-10 flex flex-wrap items-center gap-x-5 bg-portfolio-1/80 px-4 py-4 backdrop-blur md:px-16 md:py-5 lg:px-32"
       data-sanity={dataAttribute?.('menuItems')}
     >
       <OptimisticSortOrder id={data?._id} path="menuItems">
@@ -34,12 +34,11 @@ export function Navbar(props: NavbarProps) {
           return (
             <Link
               key={menuItem._key}
-              className={`text-lg hover:text-black md:text-xl ${
-                menuItem?._type === 'home' ? 'font-extrabold text-black' : 'text-gray-600'
-              }`}
+              className={`text-lg hover:text-black md:text-xl ${menuItem?._type === 'home' ? 'font-extrabold text-portfolio-3' : 'text-portfolio-3'
+                }`}
               data-sanity={dataAttribute?.([
                 'menuItems',
-                {_key: menuItem._key as unknown as string},
+                { _key: menuItem._key as unknown as string },
               ])}
               href={href}
             >

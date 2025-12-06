@@ -12,7 +12,7 @@ export function ProjectListItem(props: ProjectProps) {
 
   return (
     <>
-      <div className="w-full xl:w-9/12">
+      <div className="w-full m-12 xl:w-9/12">
         <ImageBox
           image={project.coverImage}
           alt={`Cover image from ${project.title}`}
@@ -20,7 +20,9 @@ export function ProjectListItem(props: ProjectProps) {
         />
       </div>
       <div className="flex xl:w-1/4">
+      <div className='text-portfolio-2'>
         <TextBox project={project} />
+        </div>
       </div>
     </>
   )
@@ -29,14 +31,14 @@ export function ProjectListItem(props: ProjectProps) {
 function TextBox({project}: {project: ShowcaseProject}) {
   console.log(project)
   return (
-    <div className="relative mt-2 flex w-full flex-col justify-between p-3 xl:mt-0">
+    <div className=" rounded-md relative mt-2 flex w-full flex-col justify-between p-3 xl:mt-0">
       <div>
         {/* Title */}
         <div className="mb-2 text-xl font-extrabold tracking-tight md:text-2xl">
           {project.title}
         </div>
         {/* Overview  */}
-        <div className="font-serif text-gray-500">
+        <div className="font-serif ml-1 bg-portfolio-5">
           <CustomPortableText
             id={project._id}
             type={project._type}

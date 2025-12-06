@@ -1,27 +1,27 @@
-import {Header} from '@/components/Header'
-import {OptimisticSortOrder} from '@/components/OptimisticSortOrder'
-import {ProjectListItem} from '@/components/ProjectListItem'
-import type {HomePageQueryResult} from '@/sanity.types'
-import {studioUrl} from '@/sanity/lib/api'
-import {resolveHref} from '@/sanity/lib/utils'
-import {createDataAttribute} from 'next-sanity'
+import { Header } from '@/components/Header'
+import { OptimisticSortOrder } from '@/components/OptimisticSortOrder'
+import { ProjectListItem } from '@/components/ProjectListItem'
+import type { HomePageQueryResult } from '@/sanity.types'
+import { studioUrl } from '@/sanity/lib/api'
+import { resolveHref } from '@/sanity/lib/utils'
+import { createDataAttribute } from 'next-sanity'
 import Link from 'next/link'
 
 export interface HomePageProps {
   data: HomePageQueryResult | null
 }
 
-export async function HomePage({data}: HomePageProps) {
+export async function HomePage({ data }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const {overview = [], showcaseProjects = [], title = ''} = data ?? {}
+  const { overview = [], showcaseProjects = [], title = '' } = data ?? {}
 
   const dataAttribute =
     data?._id && data?._type
       ? createDataAttribute({
-          baseUrl: studioUrl,
-          id: data._id,
-          type: data._type,
-        })
+        baseUrl: studioUrl,
+        id: data._id,
+        type: data._type,
+      })
       : null
 
   return (
@@ -38,9 +38,9 @@ export async function HomePage({data}: HomePageProps) {
         />
       )}
       {/* Showcase projects */}
-      <div className='text-4xl font-bold'>My projects</div>
+      <div className='text-3xl  text-portfolio-3 font-sa'>Previous Projects</div>
       <div className="mx-auto max-w-[100rem] rounded-md border">
-        <OptimisticSortOrder id={data?._id} path={'showcaseProjects'}>
+        <OptimisticSortOrder id={data?._id} path={'showcaseProjects'}> 
           {showcaseProjects &&
             showcaseProjects.length > 0 &&
             showcaseProjects.map((project) => {
@@ -50,10 +50,10 @@ export async function HomePage({data}: HomePageProps) {
               }
               return (
                 <Link
-                  className="flex flex-col gap-x-5 p-2 transition bg-white odd:border-b odd:border-t hover:bg-gray-50/50 xl:flex-row odd:xl:flex-row-reverse"
+                  className="flex flex-col m-20 gap-x-20 p-5 transition bg-portfolio-5 odd:border-b odd:border-t hover:bg-portfolio-4-50/50 xl:flex-row odd:xl:flex-row-reverse"
                   key={project._key}
                   href={href}
-                  data-sanity={dataAttribute?.(['showcaseProjects', {_key: project._key}])}
+                  data-sanity={dataAttribute?.(['showcaseProjects', { _key: project._key }])}
                 >
                   <ProjectListItem project={project as any} />
                 </Link>

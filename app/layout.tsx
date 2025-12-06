@@ -1,5 +1,5 @@
 import './globals.css'
-import {IBM_Plex_Mono, Inter, PT_Serif} from 'next/font/google'
+import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
 
 const serif = PT_Serif({
   variable: '--font-serif',
@@ -19,7 +19,7 @@ const mono = IBM_Plex_Mono({
   weight: ['500', '700'],
 })
 
-export default async function RootLayout({children}: {children: React.ReactNode}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${mono.variable} ${sans.variable} ${serif.variable}`}>
       <body>{children}</body>

@@ -23,7 +23,7 @@ export function TimelineItem({milestone}: {milestone: MilestoneItem}) {
           />
         </div>
         {/* Vertical line */}
-        <div className="mt-2 w-px grow self-center bg-gray-200 group-last:hidden" />
+        <div className="mt-2 w-px grow self-center bg-portfolio-3 group-last:hidden" />
       </div>
       <div className="flex-initial pl-4">
         {/* Title */}
@@ -39,7 +39,7 @@ export function TimelineItem({milestone}: {milestone: MilestoneItem}) {
           {startYear} - {endYear}
         </div>
         {/* Description */}
-        <div className="pb-5 pt-3 font-serif text-gray-600">{description}</div>
+        <div className="pb-5 pt-3 font-serif text-portfolio-3">{description}</div>
       </div>
     </div>
   )
