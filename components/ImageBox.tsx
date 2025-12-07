@@ -1,8 +1,8 @@
-import {urlForImage} from '@/sanity/lib/utils'
+import { urlForImage } from '@/sanity/lib/utils'
 import Image from 'next/image'
 
 interface ImageBoxProps {
-  'image'?: {asset?: any}
+  'image'?: { asset?: any }
   'alt'?: string
   'width'?: number
   'height'?: number
@@ -24,12 +24,12 @@ export default function ImageBox({
 
   return (
     <div
-      className={`w-full overflow-hidden rounded-[3px] bg-gray-50 ${classesWrapper}`}
+      className={`w-full overflow-hidden rounded-[3px] bg-portfolio-5 ${classesWrapper}`}
       data-sanity={props['data-sanity']}
     >
       {imageUrl && (
         <Image
-          className="absolute h-full w-full"
+          className="h-full w-full"
           alt={alt}
           width={width}
           height={height}

@@ -1,5 +1,5 @@
 import { CustomPortableText } from '@/components/CustomPortableText'
-import { Header } from '@/components/Header'
+import { Header } from '@/components/HeaderFrontpage'
 import { sanityFetch } from '@/sanity/lib/live'
 import { pagesBySlugQuery, slugsByTypeQuery } from '@/sanity/lib/queries'
 import type { Metadata, ResolvingMetadata } from 'next'
@@ -46,12 +46,6 @@ export default async function PageSlugRoute({ params }: Props) {
   }
 
   const { body, overview, title, image, list } = data ?? {}
-
-  console.log("List", list);
-
-  console.log("image", image);
-  
-
 
   return (
     <div>
