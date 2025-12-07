@@ -29,7 +29,6 @@ export function ProjectListItem(props: ProjectProps) {
 }
 
 function TextBox({ project }: { project: ShowcaseProject }) {
-  console.log(project)
   return (
     <div className=" rounded-md relative mt-2 flex w-full flex-col justify-between p-3 xl:mt-0">
       <div>
