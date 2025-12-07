@@ -1,5 +1,5 @@
 
-# Hi, I'm [Your Name] 👋
+# Hi, I'm Farhia Addow
 
 Welcome to my Portfolio!
 
