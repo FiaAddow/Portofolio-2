@@ -49,20 +49,20 @@ export default async function IndexRoute({ children }: { children: React.ReactNo
 
       <div className="flex min-h-screen flex-col bg-portfolio-1 text-portfolio-3">
         <Navbar data={data} />
-        <div className='m-6 md:m-10 lg:m-16 bg-portfolio-5 '>
+        <div className='m-6 md:m-10 lg:m-16 bg-portfolio-5 lg:pb-12'>
           <div className="mt-20 flex-grow bg-portfolio-5 px-4 md:px-16 lg:px-32 ">{children}</div>
-          <footer className="bottom-0 w-auto bg-portfolio-5  py-8 text-left m-3 ml-4 md:py-20">
-            {data?.footer && (
-              <CustomPortableText
-                id={data._id}
-                type={data._type}
-                path={['footer']}
-                paragraphClasses="text-md md:text-xl"
-                value={data.footer as unknown as PortableTextBlock[]}
-              />
-            )}
-          </footer>
         </div>
+        <footer className="w-auto py-4 mb-2 text-center ml-4">
+          {data?.footer && (
+            <CustomPortableText
+              id={data._id}
+              type={data._type}
+              path={['footer']}
+              paragraphClasses="text-md md:text-xl"
+              value={data.footer as unknown as PortableTextBlock[]}
+            />
+          )}
+        </footer>
       </div>
       <Toaster />
       <SanityLive onError={handleError} />

@@ -11,7 +11,7 @@ export function TimelineItem({milestone}: {milestone: MilestoneItem}) {
       <div className="flex flex-col">
         {/* Thumbnail */}
         <div
-          className="relative overflow-hidden rounded-md bg-black"
+          className="relative overflow-hidden rounded-md bg-portfolio-3"
           style={{width: '65px', height: '65px'}}
         >
           <ImageBox
@@ -29,7 +29,7 @@ export function TimelineItem({milestone}: {milestone: MilestoneItem}) {
         {/* Title */}
         <div className="font-bold text-black">{title}</div>
         {/* Tags */}
-        <div className="text-sm text-gray-600">
+        <div className="text-sm text-gray-600 ">
           {tags?.map((tag, key) => (
             <span key={key}>
               {tag}

@@ -1,4 +1,4 @@
-import { Header } from '@/components/Header'
+import { Header } from '@/components/HeaderFrontpage'
 import { OptimisticSortOrder } from '@/components/OptimisticSortOrder'
 import { ProjectListItem } from '@/components/ProjectListItem'
 import type { HomePageQueryResult } from '@/sanity.types'
@@ -25,7 +25,7 @@ export async function HomePage({ data }: HomePageProps) {
       : null
 
   return (
-    <div className="space-y-20">
+    <div className="">
       {/* Header */}
       {title && (
         <Header
@@ -39,7 +39,7 @@ export async function HomePage({ data }: HomePageProps) {
         />
       )}
       {/* Showcase projects */}
-      <div className='text-3xl text-portfolio-3 font-bold'>My work</div>
+      <div className=' ml-10 mt-16 text-2xl md:text-3xl lg:text-5xl text-portfolio-3 font-mono'>My previous work</div>
       <div className="mx-auto max-w-[100rem] rounded-md">
         <OptimisticSortOrder id={data?._id} path={'showcaseProjects'}>
           {showcaseProjects &&
@@ -51,7 +51,7 @@ export async function HomePage({ data }: HomePageProps) {
               }
               return (
                 <Link
-                  className="flex flex-col m-10 gap-x-8 p-5 transition bg-portfolio-1/50 shadow-md odd:border-b odd:border-t hover:bg-portfolio-4-50/50 xl:flex-row odd:xl:flex-row-reverse"
+                  className="flex flex-col my-10 mx-2 md:m-10 gap-x-8 p-4 transition bg-portfolio-1/50 shadow-md odd:border-b odd:border-t hover:bg-portfolio-4-50/50 xl:flex-row odd:xl:flex-row-reverse"
                   key={project._key}
                   href={href}
                   data-sanity={dataAttribute?.(['showcaseProjects', { _key: project._key }])}
